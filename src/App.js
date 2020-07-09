@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Header, H1 } from './styles.js';
+import Carousel from './Carousel.js';
+import Login from './Login.js';
 
-function App() {
+export default function App() {
+  const [isLogged, setIsLogged] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header>
+        <H1>Carousal App</H1>
+        <Login isLogged={isLogged} setIsLogged={setIsLogged} />
+      </Header>
+      <Carousel isLogged={isLogged}/>
+    </>
   );
 }
-
-export default App;
